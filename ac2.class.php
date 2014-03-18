@@ -22,21 +22,66 @@ if ( !defined('EQDKP_INC') ){
 
 if(!class_exists('ac2')) {
 	class ac2 extends game_generic {
-		public static $shortcuts = array();
+		public $version			= '0.1';
 		protected $this_game	= 'ac2';
-		protected $types		= array('classes', 'races', 'factions', 'filters');
-		public $icons			= array('classes', 'classes_big', 'races', 'events');
+		protected $types		= array('classes', 'races', 'filters');
 		protected $classes		= array();
 		protected $races		= array();
 		protected $factions		= array();
 		protected $filters		= array();
 		public $langs			= array('english');
 
+		protected $class_dependencies = array(
+			array(
+				'name'		=> 'race',
+				'type'		=> 'races',
+				'admin'		=> false,
+				'decorate'	=> true,
+				'parent'	=> false,
+			),
+			array(
+				'name'		=> 'class',
+				'type'		=> 'classes',
+				'admin'		=> false,
+				'decorate'	=> true,
+				'primary'	=> true,
+				'colorize'	=> true,
+				'roster'	=> true,
+				'recruitment' => true,
+				'parent'	=> array(
+					'race' => array(
+						0 	=> 'all',		// Unknown
+						1 	=> 'all',		// Alchemist
+						2 	=> 'all',		// Berserker
+						3 	=> 'all',		// Bounty Hunter
+						4 	=> 'all',		// Claw Bearer
+						5 	=> 'all',		// Defender
+						6 	=> 'all',		// Drudge
+						7 	=> 'all',		// Elementalist
+						8 	=> 'all',		// Enchanter
+						9 	=> 'all',		// Feral Intendant
+						10 	=> 'all',		// Healer
+						11 	=> 'all',		// Hieromancer
+						12 	=> 'all',		// Hive Keeper
+						13 	=> 'all',		// Invoker
+						14 	=> 'all',		// Juggernaut
+						15 	=> 'all',		// Mentalist
+						16 	=> 'all',		// Raider
+						17 	=> 'all',		// Ranger
+						18 	=> 'all',		// Sage
+						19 	=> 'all',		// Sorcerer
+						20 	=> 'all',		// Tactician
+						21 	=> 'all',		// Templar
+						22 	=> 'all',		// Zealot
+					),
+				),
+			),
+		);
+
 		protected $glang		= array();
 		protected $lang_file	= array();
 		protected $path			= false;
 		public $lang			= false;
-		public $version			= '0.1';
 
 		/**
 		* Initialises filters
@@ -56,32 +101,6 @@ if(!class_exists('ac2')) {
 			}
 		}
 		public function get_OnChangeInfos($install=false){
-			//classcolors
-			$info['class_color'] = array(
-				1      	=> '#FFFFFF',
-				2    	=> '#FFFFFF',
-				3     	=> '#FFFFFF',
-				4    	=> '#FFFFFF',
-				5      	=> '#FFFFFF',
-				6    	=> '#FFFFFF',
-				7     	=> '#FFFFFF',
-				8    	=> '#FFFFFF',
-				9      	=> '#FFFFFF',
-				10    	=> '#FFFFFF',
-				11     	=> '#FFFFFF',
-				12    	=> '#FFFFFF',
-				13      => '#FFFFFF',
-				14    	=> '#FFFFFF',
-				15     	=> '#FFFFFF',
-				16    	=> '#FFFFFF',
-				17      => '#FFFFFF',
-				18    	=> '#FFFFFF',
-				19     	=> '#FFFFFF',
-				20    	=> '#FFFFFF',
-				21      => '#FFFFFF',
-				22    	=> '#FFFFFF',
-				
-			);
 			$info['aq'] = array();
 
 			//Do this SQL Query NOT if the Eqdkp is installed -> only @ the first install
@@ -91,5 +110,4 @@ if(!class_exists('ac2')) {
 		}
 	}
 }
-if(version_compare(PHP_VERSION, '5.3.0', '<')) registry::add_const('short_ac2', ac2::$shortcuts);
 ?>

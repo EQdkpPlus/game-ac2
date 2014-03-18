@@ -45,17 +45,13 @@ $english_array =  array(
 		21	=> 'Templar',
 		22	=> 'Zealot',
 	),
-
 	'races' => array(
-				'Unknown',
-				'Drudge',
-				'Empyrean',
-				'Human',
-				'Lugian',
-				'Tumerok',
-	),
-	'factions' => array(
-		'Default',
+		0	=> 'Unknown',
+		1	=> 'Drudge',
+		2	=> 'Empyrean',
+		3	=> 'Human',
+		4	=> 'Lugian',
+		5	=> 'Tumerok',
 	),
 	'lang' => array(
 		'ac2' => 'Asherons Call 2',
