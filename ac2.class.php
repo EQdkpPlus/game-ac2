@@ -4,15 +4,14 @@
  * License:		Creative Commons - Attribution-Noncommercial-Share Alike 3.0 Unported
  * Link:		http://creativecommons.org/licenses/by-nc-sa/3.0/
  * -----------------------------------------------------------------------
- * Began:       08.03.2011
- * Date:        $Date$
+ * Date:		$Date$
  * -----------------------------------------------------------------------
- * @author      $Author$
- * @copyright   2006-2008 Corgan - Stefan Knaak | Wallenium & the EQdkp-Plus Developer Team
- * @link        http://eqdkp-plus.com
- * @package     eqdkp-plus
- * @version     $Rev$
- * 
+ * @author		$Author$
+ * @copyright	2006-2014 EQdkp-Plus Developer Team
+ * @link		http://eqdkp-plus.com
+ * @package		eqdkp-plus
+ * @version		$Rev$
+ *
  * $Id$
  */
 
@@ -22,14 +21,15 @@ if ( !defined('EQDKP_INC') ){
 
 if(!class_exists('ac2')) {
 	class ac2 extends game_generic {
-		public $version			= '0.1';
-		protected $this_game	= 'ac2';
-		protected $types		= array('classes', 'races', 'filters');
-		protected $classes		= array();
-		protected $races		= array();
-		protected $factions		= array();
-		protected $filters		= array();
-		public $langs			= array('english');
+		protected static $apiLevel	= 20;
+		public $version				= '0.1';
+		protected $this_game		= 'ac2';
+		protected $types			= array('classes', 'races', 'filters');
+		protected $classes			= array();
+		protected $races			= array();
+		protected $factions			= array();
+		protected $filters			= array();
+		public $langs				= array('english');
 
 		protected $class_dependencies = array(
 			array(
@@ -83,11 +83,6 @@ if(!class_exists('ac2')) {
 		protected $path			= false;
 		public $lang			= false;
 
-		/**
-		* Initialises filters
-		*
-		* @param array $langs
-		*/
 		protected function load_filters($langs){
 			if(!$this->classes) {
 				$this->load_type('classes', $langs);
@@ -100,14 +95,8 @@ if(!class_exists('ac2')) {
 				}
 			}
 		}
-		public function install($install=false){
-			
 
-			//Do this SQL Query NOT if the Eqdkp is installed -> only @ the first install
-			#if($install){
-			#}
-			return $info;
-		}
+		public function install($install=false){}
 	}
 }
 ?>
