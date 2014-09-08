@@ -54,7 +54,14 @@ $english_array =  array(
 		5	=> 'Tumerok',
 	),
 	'lang' => array(
-		'ac2' => 'Asherons Call 2',
+		'ac2'							=> 'Asherons Call 2',
+
+		// Profile information
+		'uc_race'						=> 'Race',
+		'uc_class'						=> 'Class',
+
+		// Admin Settings
+		'core_sett_fs_gamesettings'	=> 'Asherons Call 2 Settings',
 	),
 );
 
