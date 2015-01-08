@@ -26,7 +26,7 @@ if ( !defined('EQDKP_INC') ){
 if(!class_exists('ac2')) {
 	class ac2 extends game_generic {
 		protected static $apiLevel	= 20;
-		public $version				= '0.1';
+		public $version				= '0.2';
 		protected $this_game		= 'ac2';
 		protected $types			= array('classes', 'races', 'filters');
 		protected $classes			= array();
